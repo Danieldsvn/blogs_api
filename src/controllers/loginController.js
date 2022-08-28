@@ -18,7 +18,7 @@ const Login = async (request, response) => {
   }
   const user = await User.findOne({ where: { email } });
   
-  if (!user) {
+  if (!user || user.password !== password) {
     return response.status(400).json({ message: 'Invalid fields' });
   }
 
