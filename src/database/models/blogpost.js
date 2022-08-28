@@ -1,10 +1,11 @@
-const BlogPost = (sequelize, Datatypes) => {
+const BlogPost = (sequelize, DataTypes) => {
   const BlogPost = sequelize.define("BlogPost", {
-    title: Datatypes.STRING,
-    content: Datatypes.STRING,
-    userId: Datatypes.INTEGER,
-    published: Datatypes.DATE,
-    updated: Datatypes.DATE,    
+    id:{ type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    title: DataTypes.STRING,
+    content: DataTypes.STRING,
+    userId: DataTypes.INTEGER,
+    published: DataTypes.DATE,
+    updated: DataTypes.DATE,    
   });
 
   return BlogPost;
