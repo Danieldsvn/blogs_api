@@ -1,7 +1,9 @@
+require('dotenv').config();
+
 const jwt = require('jsonwebtoken');
 const { User } = require('../database/models');
 
-const secret = 'suaSenhaSecreta';
+const secret = process.env.JWT_SECRET;
 
 const validateBody = (body) => {
   const { email, password } = body;
