@@ -16,6 +16,7 @@ services:
       - db
     ports:
       - 3000:3000
+      - 9229:9229
     environment:
       MYSQL_USER: root
       MYSQL_PASSWORD: password
