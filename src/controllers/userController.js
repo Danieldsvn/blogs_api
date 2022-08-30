@@ -34,8 +34,8 @@ const Create = async (request, response) => {
     const { code, message } = validateNewUser(request);
     return response.status(code).json({ message });
   }
-  const emailFinded = User.findOne({ where: { email }});
-  if(emailFinded.email === email) {
+  const emailFinded = await User.findOne({ where: { email }});  
+  if(emailFinded && emailFinded.email === email) {
     return response.status(409).json({ message:'User already registred' });
   }
 
