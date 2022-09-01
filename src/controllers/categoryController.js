@@ -13,6 +13,16 @@ const Create = async (request, response) => {
   }
 };
 
+const GetAll = async (request, response) => {
+  try {
+    const categories = await Category.findAll();
+    return response.status(200).json(categories);
+  } catch (err) {
+    return response.status(500).json({ message: 'Server error' });
+  }
+};
+
 module.exports = {
   Create,
+  GetAll,
 };
