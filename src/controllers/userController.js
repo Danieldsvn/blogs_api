@@ -80,7 +80,7 @@ const GetById = async (request, response) => {
       displayName: user.displayName,
       email: user.email,
       image: user.image,
-    }
+    };
     return response.status(200).json(userWithoutPassword);
   } catch (err) {
     return response.status(500).json({ message: 'Server error' });
