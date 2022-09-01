@@ -41,7 +41,7 @@ const Create = async (request, response) => {
   if (emailFound !== null) {
     return response.status(409).json({ message: 'User already registered' });
   }
-  const newUser = await User.create({ displayName, email, image, password });
+  await User.create({ displayName, email, image, password });
   const user = { displayName, email, image };
 
   const jwtConfig = { expiresIn: '8h', algorithm: 'HS256' };
