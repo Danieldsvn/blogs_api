@@ -31,18 +31,17 @@ const validateNewUser = (request) => {
   return { valid: true };
 };
 
-const Create = async (request, response) => {
-  const { displayName, email, image } = request.body;
+const Create = async (request, response) => { 
+  const { displayName, email, image, password } = request.body;
   if (!(validateNewUser(request).valid)) {
     const { code, message } = validateNewUser(request);
     return response.status(code).json({ message });
   }  
-  const emailFound = await User.findOne({ where: { email } }); 
-  console.log(`emailFound: ${emailFound}`); 
+  const emailFound = await User.findOne({ where: { email } });   
   if (emailFound !== null) {
-    return response.status(409).json({ message: 'User already registred' });
+    return response.status(409).json({ message: 'User already registered' });
   }
-
+  const newUser = await User.create({ displayName, email, image, password });
   const user = { displayName, email, image };
 
   const jwtConfig = { expiresIn: '8h', algorithm: 'HS256' };
