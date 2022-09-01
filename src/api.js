@@ -12,6 +12,7 @@ app.use(express.json());
 app.post('/login', LoginController.Login);
 app.post('/user', UserController.Create);
 app.get('/user', validateJWT, UserController.GetAll);
+app.get('/user/:id', validateJWT, UserController.GetById);
 // ...
 
 // É importante exportar a constante `app`,

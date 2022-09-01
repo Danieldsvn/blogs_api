@@ -68,7 +68,27 @@ const GetAll = async (request, response) => {
   }  
 };
 
+const GetById = async (request, response) => {
+  const { id } = request.params;
+  try {
+    const user = await User.findOne({ where: { id } });
+    if (user === null) {
+      return response.status(404).json({ message: 'User does not exist' });
+    }
+    const userWithoutPassword = {
+      id: user.id,
+      displayName: user.displayName,
+      email: user.email,
+      image: user.image,
+    }
+    return response.status(200).json(userWithoutPassword);
+  } catch (err) {
+    return response.status(500).json({ message: 'Server error' });
+  }  
+};
+
 module.exports = {
   Create,
   GetAll,
+  GetById,
 };
