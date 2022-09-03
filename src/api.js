@@ -4,6 +4,7 @@ const validateJWT = require('../middlewares/validateJWT');
 const LoginController = require('./controllers/loginController');
 const UserController = require('./controllers/userController');
 const CategoryController = require('./controllers/categoryController');
+const BlogPostController = require('./controllers/blogPostController');
 // ...
 
 const app = express();
@@ -16,6 +17,7 @@ app.get('/user', validateJWT, UserController.GetAll);
 app.get('/user/:id', validateJWT, UserController.GetById);
 app.post('/categories', validateJWT, CategoryController.Create);
 app.get('/categories', validateJWT, CategoryController.GetAll);
+app.post('/post', validateJWT, BlogPost.Create);
 // ...
 
 // É importante exportar a constante `app`,
