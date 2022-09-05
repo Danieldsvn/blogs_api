@@ -3,7 +3,7 @@ const { Category, BlogPost } = require('../database/models');
 
 const ValidateCategoryIds = async (ids) => {
   let isValid = { valid: true };
-  Promise.all(ids.every((id) => {
+   Promise.all(ids.every(async (id) => {
     await Category.findOne(id) === undefined;
   })).then((value) => isValid = { valid: !value });
   return isValid;
