@@ -59,7 +59,28 @@ const GetAll = async (request, response) => {
   }
 };
 
+const GetById = async (request, response) => {
+  try {
+    const { id } = request.params; 
+    const posts = await BlogPost.findOne({
+      where: { id },      
+      include: [{
+        model: User, as: 'user', attributes: { exclude: ['password'] },        
+      }, {
+        model: Category, as: 'categories',
+      }],
+    });
+    if (!posts || posts.length === 0) {
+      return response.status(404).json({ message: 'Post does not exist' });
+    }
+    return response.status(200).json(posts);
+  } catch (err) {
+    return response.status(500).json({ message: err.message });
+  }
+};
+
 module.exports = {
   Create,
   GetAll,
+  GetById,
 };
