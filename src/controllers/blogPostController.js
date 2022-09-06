@@ -1,5 +1,6 @@
 const { Category } = require('../database/models');
 const { BlogPost } = require('../database/models');
+const { User } = require('../database/models');
 
 const ValidateCategoryIds = async (ids) => {    
   const idDoesntExist = ids.every(async (id) => {
@@ -46,14 +47,15 @@ const GetAll = async (request, response) => {
   try {
     const posts = await BlogPost.findAll({      
       include: [{
-        model: User, as: 'user', attributes: { exclude: ['password'] },
+        model: User, as: 'user', attributes: { exclude: ['password'] },        
+      }, {
         model: Category, as: 'categories',
       }],
     });
     console.log(`posts: ${JSON.stringify(posts)}`);
     return response.status(200).json(posts);
   } catch (err) {
-    return response.status(500).json({ message: 'Something gone wrong' });
+    return response.status(500).json({ message: err.message });
   }
 };
 
