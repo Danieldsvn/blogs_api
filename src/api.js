@@ -18,6 +18,7 @@ app.get('/user/:id', validateJWT, UserController.GetById);
 app.post('/categories', validateJWT, CategoryController.Create);
 app.get('/categories', validateJWT, CategoryController.GetAll);
 app.post('/post', validateJWT, BlogPostController.Create);
+app.get('/post', validateJWT, BlogPostController.GetAll);
 // ...
 
 // É importante exportar a constante `app`,
