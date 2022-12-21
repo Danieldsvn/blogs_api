@@ -1,13 +1,30 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Blogs API 
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+24º projeto na Trybe. Uma API Node.js CRUD com conexão com banco de dados MySQL através da ORM Sequelize com a finalidade da produção de conteúdo para um blog.
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+## Tecnologias empregadas:
+
+Docker, MySQL, Node.js e as bibliotecas:
+
+* Sequelize (ORM)
+* Jsonwebtoken (validação de token)
+* Express (Endpoints)
+
+## Habilidades praticadas
+
+  * Construção de API RESTful
+
+  * Rodar a aplicação com Docker
+
+  * Uso do `Sequelize` como ORM com MySQL para criação e população de banco de dados
+
+  * Validação do login do usuário com `jsonwebtoken`
+
+## O que é de minha autoria:
+
+Os arquivos dos diretórios:
+
+* `./src/controllers`
+* `./src/database/migrations`
+* `./src/database/models`
+* `./src/api.js`
