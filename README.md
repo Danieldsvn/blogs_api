@@ -1,6 +1,6 @@
 # Blogs API 
 
-24º projeto na Trybe. Uma API Node.js CRUD com conexão com banco de dados MySQL através da ORM Sequelize com a finalidade da produção de conteúdo para um blog.
+23º projeto na Trybe. Uma API Node.js CRUD com conexão com banco de dados MySQL através da ORM Sequelize com a finalidade da produção de conteúdo para um blog.
 
 ## Tecnologias empregadas:
 
